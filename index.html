@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Recorrido Virtual - Personajes Icónicos de Videojuegos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Recorrido Virtual de Personajes Icónicos de Videojuegos</h1>
+<p>Aplicación Multimedia Interactiva - Fase 2</p>
+<p>Juan Camilo Dehoyos Alvarez</p>
+</header>
+
+<nav>
+<a href="#mario">Mario</a>
+<a href="#zelda">Link</a>
+<a href="#sonic">Sonic</a>
+<a href="#chief">Master Chief</a>
+<a href="#lara">Lara Croft</a>
+<a href="#quiz">Cuestionario</a>
+</nav>
+
+<!-- MARIO -->
+<section id="mario">
+<h2>Mario</h2>
+    <div style="text-align: center;">
+<img src="imagenes/mario.jpg" alt="Imagen" style="max-width:2000px; height:auto;"> 
+</div>
+<p><strong>Biografía:</strong> Mario es el personaje más icónico de Nintendo.</p>
+<p><strong>Primera aparición:</strong> Donkey Kong (1981)</p>
+<p><strong>Habilidades:</strong> Saltos, uso de power-ups y habilidades de plataforma.</p>
+
+<button onclick="mostrarInfo('marioDato')">Dato Curioso</button>
+<div id="marioDato" class="oculto">
+Mario originalmente se llamaba Jumpman.
+</div>
+</section>
+
+<!-- LINK -->
+<section id="zelda">
+    <div style="text-align: center;">
+<h2>Link - The Legend of Zelda</h2>
+<img src="imagenes/link.jpg" alt="Imagen" style="max-width:2000px; height:auto;">
+</div>
+<p><strong>Biografía:</strong> Héroe principal del reino de Hyrule.</p>
+<p><strong>Primera aparición:</strong> 1986</p>
+<p><strong>Habilidades:</strong> Combate con espada, resolución de acertijos y exploración.</p>
+
+<button onclick="mostrarInfo('zeldaDato')">Dato Curioso</button>
+<div id="zeldaDato" class="oculto">
+La saga se inspiró en experiencias de exploración en la infancia.
+</div>
+</section>
+
+<!-- SONIC -->
+<section id="sonic">
+<h2>Sonic</h2>
+<div style="text-align: center;">
+<img src="imagenes/sonic.jpg" alt="Imagen" style="max-width:2000px; height:auto;">
+</div>
+<p><strong>Biografía:</strong> Ícono de velocidad de Sega.</p>
+<p><strong>Primera aparición:</strong> 1991</p>
+<p><strong>Habilidades:</strong> Súper velocidad y ataque giratorio.</p>
+
+<button onclick="mostrarInfo('sonicDato')">Dato Curioso</button>
+<div id="sonicDato" class="oculto">
+Sonic fue creado como competencia directa de Mario.
+</div>
+</section>
+
+<!-- MASTER CHIEF -->
+<section id="chief">
+<h2>Master Chief</h2>
+<div style="text-align: center;">
+<img src="imagenes/halo.jpg"  alt="Imagen" style="max-width:2000px; height:auto;">
+</div>
+<p><strong>Biografía:</strong> Soldado Spartan protagonista de Halo.</p>
+<p><strong>Primera aparición:</strong> 2001</p>
+<p><strong>Habilidades:</strong> Combate avanzado y estrategia militar.</p>
+
+<button onclick="mostrarInfo('chiefDato')">Dato Curioso</button>
+<div id="chiefDato" class="oculto">
+Su nombre real es John-117.
+</div>
+</section>
+
+<!-- LARA CROFT -->
+<section id="lara">
+<h2>Lara Croft</h2>
+<div style="text-align: center;">
+<img src="imagenes/lara.jpg"alt="Imagen" style="max-width:2000px; height:auto;" >
+</div>
+<p><strong>Biografía:</strong> Aventurera y arqueóloga protagonista de Tomb Raider.</p>
+<p><strong>Primera aparición:</strong> 1996</p>
+<p><strong>Habilidades:</strong> Acrobacias, combate y exploración.</p>
+
+<button onclick="mostrarInfo('laraDato')">Dato Curioso</button>
+<div id="laraDato" class="oculto">
+Es uno de los primeros íconos femeninos fuertes en los videojuegos.
+</div>
+</section>
+
+<!-- CUESTIONARIO -->
+<section id="quiz">
+<h2>Cuestionario Interactivo</h2>
+<div id="contenedorProgreso">
+    <div id="barraProgreso"></div>
+</div>
+<p id="textoProgreso">Progreso: 0 / 8</p>
+
+<div class="pregunta" id="p1">
+<p>1. Mario originalmente se llamaba Jumpman.</p>
+<button onclick="responderPregunta('p1', true)">Verdadero</button>
+<button onclick="responderPregunta('p1', false)">Falso</button>
+</div>
+
+<div class="pregunta" id="p2">
+<p>2. Sonic fue creado por Nintendo.</p>
+<button onclick="responderPregunta('p2', false)">Verdadero</button>
+<button onclick="responderPregunta('p2', true)">Falso</button>
+</div>
+
+<div class="pregunta" id="p3">
+<p>3. Master Chief pertenece a la saga Halo.</p>
+<button onclick="responderPregunta('p3', true)">Verdadero</button>
+<button onclick="responderPregunta('p3', false)">Falso</button>
+</div>
+
+<div class="pregunta" id="p4">
+<p>4. Lara Croft es protagonista de Tomb Raider.</p>
+<button onclick="responderPregunta('p4', true)">Verdadero</button>
+<button onclick="responderPregunta('p4', false)">Falso</button>
+</div>
+
+<div class="pregunta" id="p5">
+<p>5. Link es el personaje principal de The Legend of Zelda.</p>
+<button onclick="responderPregunta('p5', true)">Verdadero</button>
+<button onclick="responderPregunta('p5', false)">Falso</button>
+</div>
+
+<div class="pregunta" id="p6">
+<p>6. Halo fue lanzado por primera vez en 2001.</p>
+<button onclick="responderPregunta('p6', true)">Verdadero</button>
+<button onclick="responderPregunta('p6', false)">Falso</button>
+</div>
+
+<div class="pregunta" id="p7">
+<p>7. Sonic es conocido por su velocidad.</p>
+<button onclick="responderPregunta('p7', true)">Verdadero</button>
+<button onclick="responderPregunta('p7', false)">Falso</button>
+</div>
+
+<div class="pregunta" id="p8">
+<p>8. Mario es un personaje de Sega.</p>
+<button onclick="responderPregunta('p8', false)">Verdadero</button>
+<button onclick="responderPregunta('p8', true)">Falso</button>
+</div>
+
+<br>
+<button onclick="mostrarResultado()">Ver Resultado Final</button>
+<p id="resultado"></p>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
