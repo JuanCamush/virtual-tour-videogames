@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Íconos de los Videojuegos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #060a12;
+      --card: #0e1520;
+      --accent: #00e5ff;
+      --accent2: #ff2d6b;
+      --text: #dde6f0;
+      --muted: #566070;
+      --border: rgba(0,229,255,0.13);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px);
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      background: rgba(6,10,18,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 2rem;
+    }
+    .nav-logo {
+      font-family: 'Orbitron', monospace;
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+    .nav-right { display: flex; align-items: center; gap: 1.2rem; }
+    .nav-links { display: flex; gap: 1.4rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    #lang-btn {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      padding: 0.4rem 1rem;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    #lang-btn:hover { background: var(--accent); color: var(--bg); }
+    @media(max-width:600px){ .nav-links { display:none; } }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background:
+        radial-gradient(ellipse at 50% 60%, rgba(0,229,255,0.06) 0%, transparent 65%),
+        radial-gradient(ellipse at 80% 10%, rgba(255,45,107,0.05) 0%, transparent 55%);
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0,229,255,0.35) 1px, transparent 1px);
+      background-size: 44px 44px;
+      opacity: 0.1;
+      animation: drift 25s linear infinite;
+    }
+    @keyframes drift { to { background-position: 44px 44px; } }
+    .hero-tag {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.3rem 1.1rem;
+      margin-bottom: 1.8rem;
+      animation: up 0.8s ease both;
+    }
+    .hero h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(2.2rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+      animation: up 1s ease 0.2s both;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(120deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      max-width: 580px;
+      color: #7a8fa8;
+      font-size: 1.1rem;
+      animation: up 1s ease 0.4s both;
+      margin-bottom: 2.5rem;
+    }
+    .hero-btn {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      padding: 0.85rem 2.2rem;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      animation: up 1s ease 0.6s both;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+    }
+    .hero-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      transform: translateX(-101%);
+      transition: transform 0.3s;
+      z-index: -1;
+    }
+    .hero-btn:hover { color: var(--bg); }
+    .hero-btn:hover::before { transform: translateX(0); }
+    @keyframes up {
+      from { opacity:0; transform:translateY(22px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* LAYOUT */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    .divider { height: 1px; background: linear-gradient(90deg,transparent,var(--accent),var(--accent2),transparent); opacity: 0.25; }
+    .sec-label {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.45em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .sec-title {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(1.5rem,3.5vw,2.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .sec-text { color: #7a8fa8; max-width: 700px; line-height: 1.85; }
+
+    /* INTRO GRID */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+    @media(max-width:768px){ .intro-grid { grid-template-columns: 1fr; } }
+    .intro-stats { display: flex; flex-direction: column; gap: 1rem; }
+    .istat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 1.2rem 1.4rem;
+      position: relative;
+    }
+    .istat::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent2));
+    }
+    .istat-num {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .istat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; line-height: 1.4; }
+
+    /* REVEAL */
+    .reveal { opacity:0; transform:translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+
+    /* CHARACTERS */
+    .chars { display: flex; flex-direction: column; gap: 2.5rem; margin-top: 3rem; }
+
+    .char-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s;
+    }
+    .char-row::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+    }
+    .char-row:hover { border-color: rgba(0,229,255,0.35); }
+
+    .mario::before   { background: linear-gradient(to bottom, #ef4444, #f97316); }
+    .link::before    { background: linear-gradient(to bottom, #22c55e, #84cc16); }
+    .sonic::before   { background: linear-gradient(to bottom, #3b82f6, #06b6d4); }
+    .lara::before    { background: linear-gradient(to bottom, #a78bfa, #ec4899); }
+    .master::before  { background: linear-gradient(to bottom, #f97316, #eab308); }
+
+    .char-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 12px;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin: 0 auto;
+      position: relative;
+    }
+    .char-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .char-row:hover .char-avatar img { transform: scale(1.07); }
+    .mario  .char-avatar { border: 2px solid #ef4444; box-shadow: 0 0 18px rgba(239,68,68,0.25); }
+    .link   .char-avatar { border: 2px solid #22c55e; box-shadow: 0 0 18px rgba(34,197,94,0.25); }
+    .sonic  .char-avatar { border: 2px solid #3b82f6; box-shadow: 0 0 18px rgba(59,130,246,0.25); }
+    .lara   .char-avatar { border: 2px solid #a78bfa; box-shadow: 0 0 18px rgba(167,139,250,0.25); }
+    .master .char-avatar { border: 2px solid #f97316; box-shadow: 0 0 18px rgba(249,115,22,0.25); }
+
+    .char-name {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+    }
+    .char-game { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.1rem; letter-spacing: 0.05em; }
+    .char-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
+    .char-tag {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.65rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+    }
+    .char-bio { color: #8090a8; line-height: 1.85; font-size: 0.98rem; }
+
+    @media(max-width:600px){
+      .char-row { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; }
+      .char-avatar { width:80px; height:80px; font-size:2rem; }
+    }
+
+    /* QUIZ */
+    .quiz-wrap { background: var(--card); border: 1px solid var(--border); padding: 2.5rem; }
+    .quiz-q { margin-bottom: 2.2rem; }
+    .quiz-q p {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.03em;
+    }
+    .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+    .quiz-options label {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      font-size: 0.92rem;
+      color: #8090a8;
+      padding: 0.6rem 0.9rem;
+      border: 1px solid rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.02);
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .quiz-options label:hover { border-color: var(--accent); color: var(--text); }
+    .quiz-options input { accent-color: var(--accent); }
+    .quiz-submit {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      padding: 0.85rem 2.2rem;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-top: 1rem;
+    }
+    .quiz-submit:hover { background: var(--accent); color: var(--bg); }
+    .quiz-result {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border: 1px solid var(--accent);
+      background: rgba(0,229,255,0.04);
+      display: none;
+    }
+    .score {
+      font-family: 'Orbitron', monospace;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--accent);
+    }
+    .score-msg { margin-top: 0.5rem; color: #7a8fa8; }
+    .score-detail { margin-top: 1rem; font-size: 0.88rem; color: #566070; line-height: 1.7; }
+    .correct-mark { color: #22c55e; font-weight: 700; }
+    .wrong-mark   { color: var(--accent2); font-weight: 700; }
+
+    /* FOOTER */
+    footer {
+      background: #070b14;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+    }
+    footer p { font-size: 0.82rem; color: var(--muted); }
+    footer span { font-family: 'Orbitron', monospace; color: var(--accent); font-size: 0.78rem; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" data-es="ÍCONOS GAMER" data-en="GAMER ICONS">ÍCONOS GAMER</div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#introduccion" data-es="Introducción" data-en="Introduction">Introducción</a></li>
+      <li><a href="#personajes" data-es="Personajes" data-en="Characters">Personajes</a></li>
+      <li><a href="#evaluacion" data-es="Evaluación" data-en="Quiz">Evaluación</a></li>
+    </ul>
+    <button id="lang-btn">EN</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tag" data-es="BOGOTÁ · COLOMBIA · CULTURA GAMER" data-en="BOGOTÁ · COLOMBIA · GAMER CULTURE">BOGOTÁ · COLOMBIA · CULTURA GAMER</div>
+  <h1>
+    <span data-es="Íconos de los" data-en="Icons of">Íconos de los</span><br/>
+    <em data-es="Videojuegos" data-en="Video Games">Videojuegos</em>
+  </h1>
+  <p data-es="Un recorrido por los personajes más legendarios de la historia del entretenimiento digital, desde la perspectiva de una Bogotá cada vez más conectada con la cultura gamer."
+     data-en="A journey through the most legendary characters in the history of digital entertainment, seen from a Bogotá increasingly connected to gamer culture.">
+    Un recorrido por los personajes más legendarios de la historia del entretenimiento digital, desde la perspectiva de una Bogotá cada vez más conectada con la cultura gamer.
+  </p>
+</header>
+
+<div class="divider"></div>
+
+<!-- INTRODUCCIÓN -->
+<section id="introduccion" class="wrap">
+  <div class="reveal">
+    <div class="sec-label" data-es="Introducción" data-en="Introduction">Introducción</div>
+    <h2 class="sec-title" data-es="¿De qué se trata todo esto?" data-en="What is this all about?">¿De qué se trata todo esto?</h2>
+  </div>
+  <div class="intro-grid reveal">
+    <div class="intro-text">
+      <p class="sec-text" data-es="Los videojuegos han evolucionado hasta convertirse en una de las formas de entretenimiento más influyentes a nivel mundial. A lo largo de los años, han surgido personajes que se han convertido en íconos dentro de la cultura gamer y digital, figuras que trascienden las pantallas y forman parte de la identidad de generaciones enteras."
+         data-en="Video games have evolved into one of the most influential forms of entertainment worldwide. Over the years, characters have emerged that have become icons within gamer and digital culture — figures that transcend screens and form part of the identity of entire generations.">
+        Los videojuegos han evolucionado hasta convertirse en una de las formas de entretenimiento más influyentes a nivel mundial. A lo largo de los años, han surgido personajes que se han convertido en íconos dentro de la cultura gamer y digital, figuras que trascienden las pantallas y forman parte de la identidad de generaciones enteras.
+      </p>
+      <p class="sec-text" style="margin-top:1.2rem;"
+         data-es="Este proyecto nace en Bogotá, una ciudad donde el acceso a tecnologías digitales y el consumo de contenido interactivo como los videojuegos ha crecido de forma significativa en los últimos años. Bogotá se ha convertido en un punto de encuentro de la cultura gamer en Colombia: desde torneos y convenciones hasta comunidades en línea, la pasión por los videojuegos es parte del día a día de miles de bogotanos."
+         data-en="This project is born in Bogotá, a city where access to digital technologies and the consumption of interactive content like video games has grown significantly in recent years. Bogotá has become a meeting point for gamer culture in Colombia: from tournaments and conventions to online communities, the passion for video games is part of the daily life of thousands of bogotanos.">
+        Este proyecto nace en Bogotá, una ciudad donde el acceso a tecnologías digitales y el consumo de contenido interactivo como los videojuegos ha crecido de forma significativa en los últimos años. Bogotá se ha convertido en un punto de encuentro de la cultura gamer en Colombia: desde torneos y convenciones hasta comunidades en línea, la pasión por los videojuegos es parte del día a día de miles de bogotanos.
+      </p>
+      <p class="sec-text" style="margin-top:1.2rem;"
+         data-es="El objetivo de esta página es presentar una experiencia informativa e interactiva sobre cinco de los personajes más representativos e influyentes en la historia de los videojuegos. Cada uno de ellos marcó una época, inspiró a millones de jugadores y dejó una huella imborrable en la industria del entretenimiento digital a nivel mundial."
+         data-en="The goal of this page is to present an informative and interactive experience about five of the most representative and influential characters in the history of video games. Each of them defined an era, inspired millions of players, and left an indelible mark on the digital entertainment industry worldwide.">
+        El objetivo de esta página es presentar una experiencia informativa e interactiva sobre cinco de los personajes más representativos e influyentes en la historia de los videojuegos. Cada uno de ellos marcó una época, inspiró a millones de jugadores y dejó una huella imborrable en la industria del entretenimiento digital a nivel mundial.
+      </p>
+    </div>
+    <div class="intro-stats">
+      <div class="istat">
+        <div class="istat-num">+800M</div>
+        <div class="istat-label" data-es="copias vendidas solo por la franquicia de Mario" data-en="copies sold by the Mario franchise alone">copias vendidas solo por la franquicia de Mario</div>
+      </div>
+      <div class="istat">
+        <div class="istat-num">5</div>
+        <div class="istat-label" data-es="íconos que definieron generaciones enteras de jugadores" data-en="icons that defined entire generations of players">íconos que definieron generaciones enteras de jugadores</div>
+      </div>
+      <div class="istat">
+        <div class="istat-num">40+</div>
+        <div class="istat-label" data-es="años de historia gamer representados en esta página" data-en="years of gaming history represented on this page">años de historia gamer representados en esta página</div>
+      </div>
+      <div class="istat">
+        <div class="istat-num">BOG</div>
+        <div class="istat-label" data-es="Bogotá, epicentro gamer de Colombia" data-en="Bogotá, gaming epicenter of Colombia">Bogotá, epicentro gamer de Colombia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PERSONAJES -->
+<section id="personajes" class="wrap">
+  <div class="reveal">
+    <div class="sec-label" data-es="Personajes Icónicos" data-en="Iconic Characters">Personajes Icónicos</div>
+    <h2 class="sec-title" data-es="Los héroes que definieron una era" data-en="The heroes who defined an era">Los héroes que definieron una era</h2>
+    <p class="sec-text" data-es="Desde los pixeles de los años 80 hasta los mundos en 3D del siglo XXI, estos personajes dejaron una huella imborrable en millones de jugadores alrededor del mundo, incluyendo Bogotá, donde la cultura gamer ha crecido de forma notable en la última década."
+       data-en="From the pixels of the 1980s to the 3D worlds of the 21st century, these characters left an unforgettable mark on millions of players around the world, including Bogotá, where gamer culture has grown remarkably in the last decade.">
+      Desde los pixeles de los años 80 hasta los mundos en 3D del siglo XXI, estos personajes dejaron una huella imborrable en millones de jugadores alrededor del mundo, incluyendo Bogotá, donde la cultura gamer ha crecido de forma notable en la última década.
+    </p>
+  </div>
+
+  <div class="chars">
+
+    <!-- MARIO -->
+    <div class="char-row mario reveal">
+      <div><div class="char-avatar"><img src="mario.jpg" alt="Mario"/></div></div>
+      <div>
+        <div class="char-name">Mario</div>
+        <div class="char-game" data-es="Super Mario Bros. · Nintendo · Desde 1981" data-en="Super Mario Bros. · Nintendo · Since 1981">Super Mario Bros. · Nintendo · Desde 1981</div>
+        <div class="char-tags">
+          <span class="char-tag" data-es="PLATAFORMAS" data-en="PLATFORMER">PLATAFORMAS</span>
+          <span class="char-tag">NINTENDO</span>
+          <span class="char-tag" data-es="ÍCONO GLOBAL" data-en="GLOBAL ICON">ÍCONO GLOBAL</span>
+        </div>
+        <p class="char-bio" data-es="Mario es sin duda el personaje más reconocido en toda la historia de los videojuegos. Creado por el diseñador japonés Shigeru Miyamoto, apareció por primera vez en el arcade Donkey Kong en 1981 bajo el nombre de 'Jumpman'. En 1985, con el lanzamiento de Super Mario Bros. para la Nintendo Entertainment System (NES), el fontanero italiano se convirtió en el símbolo del resurgimiento de los videojuegos tras la gran crisis de 1983. A lo largo de décadas, Mario ha protagonizado más de 200 títulos distintos, desde juegos de plataformas hasta carreras, deportes y aventuras en mundos abiertos. Su franquicia ha vendido más de 800 millones de copias en todo el mundo, convirtiéndolo en la saga más exitosa de la historia del entretenimiento interactivo. Mario no solo salvó a Nintendo en momentos críticos, sino que redefinió lo que un videojuego podía ser: una experiencia accesible, divertida y llena de imaginación para todas las edades. Hoy es tan reconocible a nivel mundial como los personajes más icónicos del cine o la televisión."
+           data-en="Mario is undoubtedly the most recognized character in the entire history of video games. Created by Japanese designer Shigeru Miyamoto, he first appeared in the Donkey Kong arcade in 1981 under the name 'Jumpman'. In 1985, with the release of Super Mario Bros. for the NES, the Italian plumber became the symbol of the video game industry's recovery after the great crash of 1983. Over decades, Mario has starred in more than 200 different titles, from platformers to racing, sports, and open-world adventures. His franchise has sold over 800 million copies worldwide, making it the most successful saga in the history of interactive entertainment. Mario not only saved Nintendo at critical moments but redefined what a video game could be: an accessible, fun, imaginative experience for all ages.">
+          Mario es sin duda el personaje más reconocido en toda la historia de los videojuegos. Creado por el diseñador japonés Shigeru Miyamoto, apareció por primera vez en el arcade Donkey Kong en 1981 bajo el nombre de "Jumpman". En 1985, con el lanzamiento de Super Mario Bros. para la Nintendo Entertainment System (NES), el fontanero italiano se convirtió en el símbolo del resurgimiento de los videojuegos tras la gran crisis de 1983. A lo largo de décadas, Mario ha protagonizado más de 200 títulos distintos, desde juegos de plataformas hasta carreras, deportes y aventuras en mundos abiertos. Su franquicia ha vendido más de 800 millones de copias en todo el mundo, convirtiéndolo en la saga más exitosa de la historia del entretenimiento interactivo. Mario no solo salvó a Nintendo en momentos críticos, sino que redefinió lo que un videojuego podía ser: una experiencia accesible, divertida y llena de imaginación para todas las edades. Hoy es tan reconocible a nivel mundial como los personajes más icónicos del cine o la televisión.
+        </p>
+      </div>
+    </div>
+
+    <!-- LINK -->
+    <div class="char-row link reveal">
+      <div><div class="char-avatar"><img src="link.jpg" alt="Link"/></div></div>
+      <div>
+        <div class="char-name">Link</div>
+        <div class="char-game" data-es="The Legend of Zelda · Nintendo · Desde 1986" data-en="The Legend of Zelda · Nintendo · Since 1986">The Legend of Zelda · Nintendo · Desde 1986</div>
+        <div class="char-tags">
+          <span class="char-tag" data-es="ACCIÓN-AVENTURA" data-en="ACTION-ADVENTURE">ACCIÓN-AVENTURA</span>
+          <span class="char-tag">RPG</span>
+          <span class="char-tag" data-es="HÉROE DEL TIEMPO" data-en="HERO OF TIME">HÉROE DEL TIEMPO</span>
+        </div>
+        <p class="char-bio" data-es="Link es el héroe silencioso de Hyrule, protagonista de una de las sagas más aclamadas de la industria: The Legend of Zelda. Creado por Shigeru Miyamoto junto a Takashi Tezuka, Link hizo su debut en 1986 en Nintendo Famicom. Desde entonces, ha encarnado al elegido por los dioses para proteger la Trifuerza del Coraje y salvar a la princesa Zelda de la eterna amenaza de Ganon. A diferencia de otros personajes, Link no habla: es el jugador quien da voz a sus acciones, lo que crea una conexión única e inmersiva. Su historia más célebre, Ocarina of Time (1998), es considerada por críticos y jugadores como el mejor videojuego jamás creado, gracias a su narrativa profunda, su mundo abierto y su sistema de combate revolucionario. Link representa la aventura pura: la exploración, el descubrimiento y el triunfo del bien sobre el mal en mundos llenos de magia, misterio y emoción."
+           data-en="Link is the silent hero of Hyrule, the protagonist of one of the most acclaimed sagas in the industry: The Legend of Zelda. Created by Shigeru Miyamoto alongside Takashi Tezuka, Link made his debut in 1986 on the Nintendo Famicom. Since then, he has embodied the chosen one by the gods to protect the Triforce of Courage and save Princess Zelda from the eternal threat of Ganon. Unlike other characters, Link does not speak — it is the player who gives voice to his actions, creating a unique and immersive connection. His most celebrated adventure, Ocarina of Time (1998), is considered by critics and players as the greatest video game ever made, thanks to its deep narrative, open world, and revolutionary combat system. Link represents pure adventure: exploration, discovery, and the triumph of good over evil in worlds filled with magic, mystery, and emotion.">
+          Link es el héroe silencioso de Hyrule, protagonista de una de las sagas más aclamadas de la industria: The Legend of Zelda. Creado por Shigeru Miyamoto junto a Takashi Tezuka, Link hizo su debut en 1986 en Nintendo Famicom. Desde entonces, ha encarnado al elegido por los dioses para proteger la Trifuerza del Coraje y salvar a la princesa Zelda de la eterna amenaza de Ganon. A diferencia de otros personajes, Link no habla: es el jugador quien da voz a sus acciones, lo que crea una conexión única e inmersiva. Su historia más célebre, Ocarina of Time (1998), es considerada por críticos y jugadores como el mejor videojuego jamás creado, gracias a su narrativa profunda, su mundo abierto y su sistema de combate revolucionario. Link representa la aventura pura: la exploración, el descubrimiento y el triunfo del bien sobre el mal en mundos llenos de magia, misterio y emoción.
+        </p>
+      </div>
+    </div>
+
+    <!-- SONIC -->
+    <div class="char-row sonic reveal">
+      <div><div class="char-avatar"><img src="sonic.jpg" alt="Sonic"/></div></div>
+      <div>
+        <div class="char-name">Sonic the Hedgehog</div>
+        <div class="char-game" data-es="Sonic the Hedgehog · SEGA · Desde 1991" data-en="Sonic the Hedgehog · SEGA · Since 1991">Sonic the Hedgehog · SEGA · Desde 1991</div>
+        <div class="char-tags">
+          <span class="char-tag" data-es="PLATAFORMAS" data-en="PLATFORMER">PLATAFORMAS</span>
+          <span class="char-tag">SEGA</span>
+          <span class="char-tag" data-es="VELOCIDAD" data-en="SPEED">VELOCIDAD</span>
+        </div>
+        <p class="char-bio" data-es="Sonic el erizo azul nació en 1991 con una misión clara: ser la respuesta de SEGA al arrasador éxito de Mario. Diseñado por Yuji Naka y Naoto Ohshima, Sonic fue concebido como un personaje más moderno, rebelde y veloz, con una actitud desafiante que conectó profundamente con los jóvenes de los años 90. Su juego debut en la Sega Genesis fue un éxito inmediato, vendiendo millones de unidades y consolidando a SEGA como un rival serio de Nintendo en la llamada 'guerra de consolas'. La velocidad no era solo un adorno estético: era el corazón de su mecánica de juego, y esa innovación marcó a toda una generación. Con el tiempo, la franquicia de Sonic se expandió a series animadas, cómics, películas de Hollywood y decenas de juegos. Aunque tuvo épocas difíciles en la transición al 3D, Sonic ha demostrado una notable resiliencia y sigue siendo uno de los personajes más queridos de la cultura gamer global."
+           data-en="Sonic the blue hedgehog was born in 1991 with a clear mission: to be SEGA's answer to Mario's overwhelming success. Designed by Yuji Naka and Naoto Ohshima, Sonic was conceived as a more modern, rebellious, and fast character, with a defiant attitude that deeply resonated with the youth of the 1990s. His debut game on the Sega Genesis was an immediate success, selling millions of units and establishing SEGA as a serious rival to Nintendo in the 'console wars'. Speed was not just an aesthetic ornament — it was the heart of his gameplay, and that innovation defined an entire generation. Over time, the Sonic franchise expanded to animated series, comics, Hollywood films, and dozens of games. Although it went through difficult times in the transition to 3D, Sonic has demonstrated remarkable resilience and remains one of the most beloved characters in global gamer culture.">
+          Sonic el erizo azul nació en 1991 con una misión clara: ser la respuesta de SEGA al arrasador éxito de Mario. Diseñado por Yuji Naka y Naoto Ohshima, Sonic fue concebido como un personaje más moderno, rebelde y veloz, con una actitud desafiante que conectó profundamente con los jóvenes de los años 90. Su juego debut en la Sega Genesis fue un éxito inmediato, vendiendo millones de unidades y consolidando a SEGA como un rival serio de Nintendo en la llamada "guerra de consolas". La velocidad no era solo un adorno estético: era el corazón de su mecánica de juego, y esa innovación marcó a toda una generación. Con el tiempo, la franquicia de Sonic se expandió a series animadas, cómics, películas de Hollywood y decenas de juegos. Aunque tuvo épocas difíciles en la transición al 3D, Sonic ha demostrado una notable resiliencia y sigue siendo uno de los personajes más queridos de la cultura gamer global.
+        </p>
+      </div>
+    </div>
+
+    <!-- LARA CROFT -->
+    <div class="char-row lara reveal">
+      <div><div class="char-avatar"><img src="lara.jpg" alt="Lara Croft"/></div></div>
+      <div>
+        <div class="char-name">Lara Croft</div>
+        <div class="char-game" data-es="Tomb Raider · Eidos Interactive · Desde 1996" data-en="Tomb Raider · Eidos Interactive · Since 1996">Tomb Raider · Eidos Interactive · Desde 1996</div>
+        <div class="char-tags">
+          <span class="char-tag" data-es="ACCIÓN-AVENTURA" data-en="ACTION-ADVENTURE">ACCIÓN-AVENTURA</span>
+          <span class="char-tag" data-es="PIONERA" data-en="PIONEER">PIONERA</span>
+          <span class="char-tag" data-es="ÍCONO CULTURAL" data-en="CULTURAL ICON">ÍCONO CULTURAL</span>
+        </div>
+        <p class="char-bio" data-es="Lara Croft es mucho más que un personaje de videojuego: es un ícono cultural que transformó la industria al demostrar que una protagonista femenina podía ser tan poderosa e inspiradora como cualquier héroe masculino. Creada por el equipo de Core Design y lanzada en 1996, Lara es una arqueóloga británica de familia noble que abandona sus privilegios para explorar tumbas antiguas, resolver acertijos y enfrentarse a peligros en los rincones más remotos del mundo. Su primer juego revolucionó la acción en tercera persona y la narrativa cinematográfica en los videojuegos, estableciendo un estándar que influyó en toda la industria. Lara Croft se convirtió en el primer personaje de videojuego en aparecer en la portada de revistas de moda internacionales y fue incluida en el Libro Guinness de los Récords como la heroína virtual más exitosa de la historia. Dos películas protagonizadas por Angelina Jolie y una trilogía reimaginada en el siglo XXI reafirman su vigencia como ícono atemporal."
+           data-en="Lara Croft is much more than a video game character: she is a cultural icon who transformed the industry by proving that a female protagonist could be as powerful and inspiring as any male hero. Created by the Core Design team and released in 1996, Lara is a British archaeologist from a noble family who abandons her privileges to explore ancient tombs, solve puzzles, and face dangers in the most remote corners of the world. Her first game revolutionized third-person action and cinematic storytelling in video games, setting a standard that influenced the entire industry. Lara Croft became the first video game character to appear on the cover of international fashion magazines and was included in the Guinness Book of World Records as the most successful virtual heroine in history. Two films starring Angelina Jolie and a reimagined trilogy reaffirm her status as a timeless icon.">
+          Lara Croft es mucho más que un personaje de videojuego: es un ícono cultural que transformó la industria al demostrar que una protagonista femenina podía ser tan poderosa e inspiradora como cualquier héroe masculino. Creada por el equipo de Core Design y lanzada en 1996, Lara es una arqueóloga británica de familia noble que abandona sus privilegios para explorar tumbas antiguas, resolver acertijos y enfrentarse a peligros en los rincones más remotos del mundo. Su primer juego revolucionó la acción en tercera persona y la narrativa cinematográfica en los videojuegos, estableciendo un estándar que influyó en toda la industria. Lara Croft se convirtió en el primer personaje de videojuego en aparecer en la portada de revistas de moda internacionales y fue incluida en el Libro Guinness de los Récords como la heroína virtual más exitosa de la historia. Dos películas protagonizadas por Angelina Jolie y una trilogía reimaginada en el siglo XXI reafirman su vigencia como ícono atemporal.
+        </p>
+      </div>
+    </div>
+
+    <!-- MASTER CHIEF -->
+    <div class="char-row master reveal">
+      <div><div class="char-avatar"><img src="master.png" alt="Master Chief"/></div></div>
+      <div>
+        <div class="char-name">Master Chief</div>
+        <div class="char-game" data-es="Halo: Combat Evolved · Bungie · Desde 2001" data-en="Halo: Combat Evolved · Bungie · Since 2001">Halo: Combat Evolved · Bungie · Desde 2001</div>
+        <div class="char-tags">
+          <span class="char-tag">FPS</span>
+          <span class="char-tag">XBOX</span>
+          <span class="char-tag">SCI-FI</span>
+        </div>
+        <p class="char-bio" data-es="John-117, conocido como Master Chief Petty Officer, es el soldado más famoso de la ciencia ficción en los videojuegos. Creado por Bungie Studios y lanzado junto al primer Xbox en 2001, Master Chief es un supersoldado del siglo XXVI, mejorado genéticamente y equipado con la legendaria armadura MJOLNIR, cuya misión es proteger a la humanidad de la amenaza alienígena conocida como el Covenant. Halo: Combat Evolved no solo fue un juego brillante: fue el título que demostró que un shooter en primera persona podía funcionar perfectamente en consola. La franquicia Halo transformó la industria, popularizó el multijugador en línea en consolas y convirtió a Xbox en una plataforma de referencia mundial. Master Chief es un personaje de pocas palabras pero de enorme presencia: su silueta con casco dorado es tan reconocible como la de cualquier superhéroe, y su historia sigue expandiéndose a través de juegos, novelas y una serie de televisión en Paramount+."
+           data-en="John-117, known as Master Chief Petty Officer, is the most famous soldier in science fiction in video games. Created by Bungie Studios and launched alongside the first Xbox in 2001, Master Chief is a 26th-century supersoldier, genetically enhanced and equipped with the legendary MJOLNIR armor, whose mission is to protect humanity from the alien threat known as the Covenant. Halo: Combat Evolved proved that a first-person shooter could work perfectly on a console. The Halo franchise transformed the industry, popularized online multiplayer on consoles, and turned Xbox into a global reference platform. Master Chief is a character of few words but enormous presence: his golden-helmeted silhouette is as recognizable as any superhero, and his story continues to expand through games, novels, and a television series on Paramount+.">
+          John-117, conocido como Master Chief Petty Officer, es el soldado más famoso de la ciencia ficción en los videojuegos. Creado por Bungie Studios y lanzado junto al primer Xbox en 2001, Master Chief es un supersoldado del siglo XXVI, mejorado genéticamente y equipado con la legendaria armadura MJOLNIR, cuya misión es proteger a la humanidad de la amenaza alienígena conocida como el Covenant. Halo: Combat Evolved no solo fue un juego brillante: fue el título que demostró que un shooter en primera persona podía funcionar perfectamente en consola. La franquicia Halo transformó la industria, popularizó el multijugador en línea en consolas y convirtió a Xbox en una plataforma de referencia mundial. Master Chief es un personaje de pocas palabras pero de enorme presencia: su silueta con casco dorado es tan reconocible como la de cualquier superhéroe, y su historia sigue expandiéndose a través de juegos, novelas y una serie de televisión en Paramount+.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EVALUACION -->
+<section id="evaluacion" class="wrap">
+  <div class="reveal">
+    <div class="sec-label" data-es="Evaluación" data-en="Quiz">Evaluación</div>
+    <h2 class="sec-title" data-es="¿Cuánto sabes de los íconos gamer?" data-en="How much do you know about gamer icons?">¿Cuánto sabes de los íconos gamer?</h2>
+    <p class="sec-text" style="margin-bottom:2.5rem;"
+       data-es="Pon a prueba tus conocimientos con estas preguntas basadas en lo que acabas de leer."
+       data-en="Test your knowledge with these questions based on what you just read.">
+      Pon a prueba tus conocimientos con estas preguntas basadas en lo que acabas de leer.
+    </p>
+  </div>
+
+  <div class="quiz-wrap reveal">
+    <div id="quiz-form">
+
+      <div class="quiz-q">
+        <p data-es="1. ¿Con qué nombre apareció Mario por primera vez en un videojuego?" data-en="1. By what name did Mario first appear in a video game?">1. ¿Con qué nombre apareció Mario por primera vez en un videojuego?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q1" value="a"/> <span data-es="Super Mario" data-en="Super Mario">Super Mario</span></label>
+          <label><input type="radio" name="q1" value="b"/> <span data-es="Jumpman" data-en="Jumpman">Jumpman</span></label>
+          <label><input type="radio" name="q1" value="c"/> <span data-es="Plumber Man" data-en="Plumber Man">Plumber Man</span></label>
+          <label><input type="radio" name="q1" value="d"/> <span data-es="Mario Bros" data-en="Mario Bros">Mario Bros</span></label>
+        </div>
+      </div>
+
+      <div class="quiz-q">
+        <p data-es="2. ¿Qué juego de Link es considerado por muchos el mejor videojuego de todos los tiempos?" data-en="2. Which Link game is considered by many the greatest video game of all time?">2. ¿Qué juego de Link es considerado por muchos el mejor videojuego de todos los tiempos?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q2" value="a"/> <span>The Wind Waker</span></label>
+          <label><input type="radio" name="q2" value="b"/> <span>A Link to the Past</span></label>
+          <label><input type="radio" name="q2" value="c"/> <span>Ocarina of Time</span></label>
+          <label><input type="radio" name="q2" value="d"/> <span>Breath of the Wild</span></label>
+        </div>
+      </div>
+
+      <div class="quiz-q">
+        <p data-es="3. ¿Cuál fue la razón principal por la que SEGA creó a Sonic?" data-en="3. What was the main reason SEGA created Sonic?">3. ¿Cuál fue la razón principal por la que SEGA creó a Sonic?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q3" value="a"/> <span data-es="Para explorar un nuevo género de videojuegos" data-en="To explore a new video game genre">Para explorar un nuevo género de videojuegos</span></label>
+          <label><input type="radio" name="q3" value="b"/> <span data-es="Para rivalizar con Mario de Nintendo" data-en="To rival Nintendo's Mario">Para rivalizar con Mario de Nintendo</span></label>
+          <label><input type="radio" name="q3" value="c"/> <span data-es="Para vender más cartuchos de juego" data-en="To sell more game cartridges">Para vender más cartuchos de juego</span></label>
+          <label><input type="radio" name="q3" value="d"/> <span data-es="Para demostrar el poder gráfico de SEGA" data-en="To show off SEGA's graphical power">Para demostrar el poder gráfico de SEGA</span></label>
+        </div>
+      </div>
+
+      <div class="quiz-q">
+        <p data-es="4. ¿Qué distinción histórica obtuvo Lara Croft en el Libro Guinness de los Récords?" data-en="4. What historic distinction did Lara Croft earn in the Guinness Book of Records?">4. ¿Qué distinción histórica obtuvo Lara Croft en el Libro Guinness de los Récords?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q4" value="a"/> <span data-es="Personaje de videojuego más vendido de todos los tiempos" data-en="Best-selling video game character of all time">Personaje de videojuego más vendido de todos los tiempos</span></label>
+          <label><input type="radio" name="q4" value="b"/> <span data-es="Heroína virtual más exitosa de la historia" data-en="Most successful virtual heroine in history">Heroína virtual más exitosa de la historia</span></label>
+          <label><input type="radio" name="q4" value="c"/> <span data-es="Primer personaje femenino en un videojuego 3D" data-en="First female character in a 3D video game">Primer personaje femenino en un videojuego 3D</span></label>
+          <label><input type="radio" name="q4" value="d"/> <span data-es="Mejor diseño de personaje de los años 90" data-en="Best character design of the 1990s">Mejor diseño de personaje de los años 90</span></label>
+        </div>
+      </div>
+
+      <div class="quiz-q">
+        <p data-es="5. ¿Cuál es el número de identificación real de Master Chief?" data-en="5. What is Master Chief's real identification number?">5. ¿Cuál es el número de identificación real de Master Chief?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q5" value="a"/> <span>John-001</span></label>
+          <label><input type="radio" name="q5" value="b"/> <span>John-117</span></label>
+          <label><input type="radio" name="q5" value="c"/> <span>John-343</span></label>
+          <label><input type="radio" name="q5" value="d"/> <span>John-007</span></label>
+        </div>
+      </div>
+
+      <button class="quiz-submit" onclick="submitQuiz()" data-es="ENVIAR RESPUESTAS" data-en="SUBMIT ANSWERS">ENVIAR RESPUESTAS</button>
+    </div>
+
+    <div class="quiz-result" id="quiz-result">
+      <div class="score" id="score-num"></div>
+      <div class="score-msg" id="score-msg"></div>
+      <div class="score-detail" id="score-detail"></div>
+      <button class="quiz-submit" onclick="resetQuiz()" style="margin-top:1.5rem;"
+              data-es="INTENTAR DE NUEVO" data-en="TRY AGAIN">INTENTAR DE NUEVO</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:0.4rem;"><span data-es="ÍCONOS DE LOS VIDEOJUEGOS" data-en="VIDEO GAME ICONS">ÍCONOS DE LOS VIDEOJUEGOS</span></p>
+  <p data-es="Proyecto académico · Bogotá, Colombia · 2025" data-en="Academic project · Bogotá, Colombia · 2025">Proyecto académico · Bogotá, Colombia · 2025</p>
+</footer>
+
+<script>
+  /* ── QUIZ DATA ── */
+  const answers = { q1:'b', q2:'c', q3:'b', q4:'b', q5:'b' };
+
+  const explanations = {
+    es: {
+      q1: 'Mario apareció por primera vez como "Jumpman" en el arcade Donkey Kong en 1981.',
+      q2: 'Ocarina of Time (1998) es ampliamente considerado el mejor videojuego de todos los tiempos.',
+      q3: 'Sonic fue creado específicamente para rivalizar con el éxito de Mario en Nintendo.',
+      q4: 'Lara Croft fue reconocida por el Libro Guinness como la heroína virtual más exitosa de la historia.',
+      q5: 'El nombre completo del Master Chief es John-117, el Spartan número 117.'
+    },
+    en: {
+      q1: 'Mario first appeared as "Jumpman" in the Donkey Kong arcade in 1981.',
+      q2: 'Ocarina of Time (1998) is widely considered the greatest video game of all time.',
+      q3: 'Sonic was created specifically to rival Nintendo\'s Mario success.',
+      q4: 'Lara Croft was recognized by the Guinness Book as the most successful virtual heroine in history.',
+      q5: 'Master Chief\'s full name is John-117, Spartan number 117.'
+    }
+  };
+
+  const messages = {
+    es: [
+      '0/5 — Sigue leyendo, ¡los íconos gamer tienen mucho por contar!',
+      '1/5 — Buen comienzo, pero aún hay mucho por aprender.',
+      '2/5 — Vas bien, ya conoces algunos íconos.',
+      '3/5 — ¡Muy bien! Eres un buen conocedor gamer.',
+      '4/5 — ¡Excelente! Casi un experto completo.',
+      '5/5 — ¡Perfecto! Dominas la historia de los videojuegos.'
+    ],
+    en: [
+      '0/5 — Keep reading, gamer icons have a lot to tell!',
+      '1/5 — Good start, but there\'s still a lot to learn.',
+      '2/5 — Getting there, you already know some icons.',
+      '3/5 — Nice! You\'re a solid gamer fan.',
+      '4/5 — Excellent! Almost a complete expert.',
+      '5/5 — Perfect! You master video game history.'
+    ]
+  };
+
+  function submitQuiz() {
+    let score = 0;
+    let detail = '';
+    const lang = document.documentElement.lang === 'en' ? 'en' : 'es';
+
+    for (let i = 1; i <= 5; i++) {
+      const sel = document.querySelector(`input[name="q${i}"]:checked`);
+      const correct = sel && answers[`q${i}`] === sel.value;
+      if (correct) score++;
+      const mark = correct
+        ? `<span class="correct-mark">${lang==='es'?'✓ Correcto':'✓ Correct'}</span>`
+        : `<span class="wrong-mark">${lang==='es'?'✗ Incorrecto':'✗ Incorrect'}</span>`;
+      detail += `<p style="margin-bottom:0.5rem">${mark} — ${explanations[lang][`q${i}`]}</p>`;
+    }
+
+    document.getElementById('score-num').textContent = `${score}/5`;
+    document.getElementById('score-msg').textContent = messages[lang][score];
+    document.getElementById('score-detail').innerHTML = detail;
+    document.getElementById('quiz-form').style.display = 'none';
+    document.getElementById('quiz-result').style.display = 'block';
+  }
+
+  function resetQuiz() {
+    document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+    document.getElementById('quiz-form').style.display = 'block';
+    document.getElementById('quiz-result').style.display = 'none';
+  }
+
+  /* ── LANGUAGE TOGGLE ── */
+  let currentLang = 'es';
+
+  document.getElementById('lang-btn').addEventListener('click', () => {
+    currentLang = currentLang === 'es' ? 'en' : 'es';
+    document.documentElement.lang = currentLang;
+    document.getElementById('lang-btn').textContent = currentLang === 'es' ? 'EN' : 'ES';
+    document.querySelectorAll('[data-es]').forEach(el => {
+      const txt = el.getAttribute(`data-${currentLang}`);
+      if (txt) el.innerHTML = txt;
+    });
+    // Reset quiz display on lang change
+    resetQuiz();
+  });
+
+  /* ── SCROLL REVEAL ── */
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
